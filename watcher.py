@@ -79,7 +79,7 @@ def monitor_vrchat():
             print(f"🔍 ウォッチング中: {user.display_name} ({state})")
 
             # offline → active になったら通知
-            if state == "online" and prev_state == "online":
+            if state == "online" and prev_state == "offline":
                 send_email(
                     settings["TO_EMAIL"],
                     f"VRChat {user.display_name} がログインしました！",
