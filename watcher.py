@@ -3,6 +3,7 @@ import sys
 import json
 import smtplib
 import vrchatapi
+from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from vrchatapi.api import authentication_api, users_api
@@ -76,7 +77,7 @@ def monitor_vrchat():
             status = user.status
             state = user.state
             
-            print(f"🔍 ウォッチング中: {user.display_name} ({state})")
+            print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]🔍 ウォッチング中: {user.display_name} ({state})")
 
             # offline → active になったら通知
             if state == "online" and prev_state == "offline":
