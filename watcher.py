@@ -79,7 +79,7 @@ def monitor_vrchat():
             
             print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]🔍 ウォッチング中: {user.display_name} ({state})")
 
-            # offline → active になったら通知
+            # offline → online になったら通知
             if state == "online" and prev_state == "offline":
                 send_email(
                     settings["TO_EMAIL"],
@@ -93,7 +93,7 @@ def monitor_vrchat():
         except Exception as e:
             print(f"⚠️ ユーザー情報取得エラー: {e}")
 
-        time.sleep(120)  # 2分待機
+        time.sleep(120)
 
 if __name__ == "__main__":
     monitor_vrchat()
