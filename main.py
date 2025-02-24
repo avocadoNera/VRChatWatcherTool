@@ -23,9 +23,9 @@ class SettingsApp(QWidget):
         self.labels = {
             "USERNAME": "自身のVRChatユーザー名:",
             "PASSWORD": "自身のVRChatパスワード:",
-            "USER_ID_TO_WATCH": "ログインを検知したいユーザーID(usr_xxx):",
+            "USER_ID_TO_WATCH": "ログインを検知したいユーザーID(例：usr_123a456n-12ab-34cd-56ef-789gji012345)",
             "GMAIL_ADDRESS": "自身のGmailアドレス:",
-            "GMAIL_PASSWORD": "自身のGmailパスワード:",
+            "GMAIL_PASSWORD": "自身のGmailアプリパスワード(例：abcdefghijklmnop)",
             "TO_EMAIL": "通知先のメールアドレス(自身のGmailアドレスでも可):",
         }
 
