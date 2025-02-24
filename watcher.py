@@ -69,18 +69,17 @@ def monitor_vrchat():
 
     user_api = users_api.UsersApi(api_client)
     user_id = settings["USER_ID_TO_WATCH"]
-    prev_status = None  # 前回のステータス
+    prev_state = None  # 前回のステータス
 
     while True:
         try:
             user = user_api.get_user(user_id=user_id)
-            status = user.status
             state = user.state
             
             print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]🔍 ウォッチング中: {user.display_name} ({state})")
 
-            # offline → online になったら通知
-            if state == "online" and prev_state == "offline":
+            # online以外 → online になったら通知
+            if prev_state != "online" and prev_state != None and state == "online":
                 send_email(
                     settings["TO_EMAIL"],
                     f"VRChat {user.display_name} がログインしました！",
